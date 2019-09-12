@@ -48,7 +48,7 @@ function APOD(props) {
       </>
     );
   };
-  console.log(props);
+
   return (
     <div className="container">
       {props.data ? renderContent(props.data) : <p>Loading...</p>}

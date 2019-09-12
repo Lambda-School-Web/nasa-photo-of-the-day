@@ -19,7 +19,6 @@ function App() {
   }, [date]);
 
   const handleDateChange = date => {
-    console.log(date);
     function changeMonth(date) {
       const months = [
         "Jan",
