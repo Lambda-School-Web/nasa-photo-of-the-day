@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdVaJa bryXLM"
+    >
+      <h1
+        class="sc-ifAKCX hJRqby"
+      >
+        Nasa's Astronomy Picture of the Day
+      </h1>
+      <p
+        class="sc-gzVnrw sc-htoDjs evfIfr"
+      >
+        Loading...
+      </p>
+    </div>
+  </div>
+</body>
+`;

@@ -1,5 +1,14 @@
 import React from "react";
 import DatePicker from "react-date-picker";
+import {
+  TitleH2,
+  NasaImg,
+  DescDiv,
+  FooterDiv,
+  ContainerDiv,
+  NasaP,
+  DescP
+} from "../styles/components";
 
 function APOD(props) {
   const youtubeEmbed = (url, title) => {
@@ -20,16 +29,16 @@ function APOD(props) {
     return (
       <>
         {media_type === "image" ? (
-          <img src={url} alt={title} />
+          <NasaImg src={url} alt={title} />
         ) : (
           youtubeEmbed(url, title)
         )}
 
-        <h2>{title}</h2>
-        <div className="desc">
-          <p className="desc">{explanation}</p>
-        </div>
-        <div className="footer">
+        <TitleH2>{title}</TitleH2>
+        <DescDiv>
+          <DescP>{explanation}</DescP>
+        </DescDiv>
+        <FooterDiv>
           <DatePicker
             format="MM-dd-y"
             value={new Date(props.date)}
@@ -39,21 +48,21 @@ function APOD(props) {
             minDate={new Date("June 16, 1995")}
           />
           {copyright && media_type === "image" ? (
-            <p className="copyright">Image Credit & Copyright: {copyright}</p>
+            <NasaP className="copyright">
+              Image Credit & Copyright: {copyright}
+            </NasaP>
           ) : null}
           {copyright && media_type === "video" ? (
-            <p className="copyright">Video Credit & License: {copyright}</p>
+            <NasaP className="copyright">
+              Video Credit & License: {copyright}
+            </NasaP>
           ) : null}
-        </div>
+        </FooterDiv>
       </>
     );
   };
 
-  return (
-    <div className="container">
-      {props.data ? renderContent(props.data) : <p>Loading...</p>}
-    </div>
-  );
+  return <ContainerDiv>{renderContent(props.data)}</ContainerDiv>;
 }
 
 export default APOD;

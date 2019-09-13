@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import APOD from "./components/APOD";
 import nasaAPOD from "./api/NasaAPOD";
-import "./App.css";
+import { NasaH1, AppDiv, DescP } from "./styles/components";
 
 function App() {
   const [data, setData] = useState(null);
-  const [date, setDate] = useState("2019-09-11");
+  const [date, setDate] = useState("2019-09-12");
 
   useEffect(() => {
     nasaAPOD
@@ -14,6 +14,7 @@ function App() {
       })
       .then(res => {
         setData(res.data);
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   }, [date]);
@@ -52,14 +53,14 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Nasa's Astronomy Picture of the Day</h1>
+    <AppDiv>
+      <NasaH1>Nasa's Astronomy Picture of the Day</NasaH1>
       {data ? (
         <APOD data={data} date={new Date(date)} callback={handleDateChange} />
       ) : (
-        <p>Loading...</p>
+        <DescP>Loading...</DescP>
       )}
-    </div>
+    </AppDiv>
   );
 }
 
